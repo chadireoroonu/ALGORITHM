@@ -12,17 +12,24 @@ result = 0
 
 for _ in range(M):
     x, y, w = map(int, sys.stdin.readline().split())
+    if x > y:
+        x, y = y, x
     road.append((w, x, y))
 
 road.sort()
 parent = [i for i in range(N+1)]
+child = [[] for _ in range(N+1)]
 
 for i in range(len(road)):
     w, x, y = road[i]
-    if x < y:
+    if x > y:
         x, y = y, x
     if check(x) != check(y):
         parent[check(y)] = check(x)
-        result += result + w
+        child[x].append(y)
 
-print(result)
+for i in range(N-1):
+    for j in range(i, N):
+
+
+print(child)
