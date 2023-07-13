@@ -6,14 +6,17 @@ def cycle(n):
     temp = 1
     queue = deque()
     queue.append(students[n])
+    visited = [0]*N
+    visited[students[n-1]] = 1
     while queue:
         j = queue.popleft()
-        if students[j-1]:
-            queue.append(students[j-1])
+        if not visited[students[j-1]]:
+            queue.append(students[j])
+            visited[students[j-1]] = 1
+            print(visited)
             print(f'n={n}, j={j}, students={students}')
-            students[j-1] = 0
             temp += 1
-        if j == n:
+        if j == n + 1:
             return temp
     return 0
 
