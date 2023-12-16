@@ -23,3 +23,7 @@ JS : 자바스크립트
 ### 문제출처
 
 b : 백준
+
+## 알고리즘 풀이
+
+https://chadireoroonu.tistory.com/
