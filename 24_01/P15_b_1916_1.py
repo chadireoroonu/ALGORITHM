@@ -10,13 +10,11 @@ def dijkstra(num):
     while queue:
         count, now = heapq.heappop(queue)
 
-        if count > visited[now]:
-            continue
-
-        for i in load[now]:
-            if visited[i[0]] > count + i[1]:
-                heapq.heappush(queue, [count + i[1], i[0]])
-                visited[i[0]] = count + i[1]
+        if count <= visited[now]:
+            for i in load[now]:
+                if visited[i[0]] > count + i[1]:
+                    heapq.heappush(queue, [count + i[1], i[0]])
+                    visited[i[0]] = count + i[1]
 
     return visited
 
