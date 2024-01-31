@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+	static int N, M;
+	static int[] nums;
+	static int[] result;
+	static boolean[] visited;
+	static StringBuilder sb = new StringBuilder();
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		N = sc.nextInt();
+		M = sc.nextInt();
+		
+		nums = new int[N];
+		visited = new boolean[N];
+		result = new int[M];
+		
+		
+		for (int i = 0; i < N; i++) {
+			nums[i] = sc.nextInt();
+		}
+		
+		Arrays.sort(nums);
+		
+		DFS(0, 0);
+		System.out.println(sb);
+	}
+	
+	static void DFS(int depth, int n) {
+		if (depth == M) {
+			for (int i : result) {
+				sb.append(i + " ");
+			}
+			sb.append('\n');
+			return;
+		}
+		for (int i = n; i < N; i++) {
+			if (!visited[i]) {
+				visited[i] = true;
+				result[depth] = nums[i];
+				DFS(depth + 1, i);
+				visited[i] = false;
+			}
+		}
+	}
+}
