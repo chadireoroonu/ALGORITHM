@@ -4,7 +4,6 @@ sys.stdin = open("../temp/input.txt")
 
 # 사이클 여부 확인
 def iscylcle(num):
-    global parent
     queue = deque([num])
     visited = [False] * (n + 1)
     while queue:

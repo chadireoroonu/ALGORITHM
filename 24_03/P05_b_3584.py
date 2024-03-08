@@ -19,8 +19,7 @@ def sol(n, m):
             queue.append(y)
 
     # n 대신 n 부모 노드로 재귀 호출
-    if parent[n]:
-        sol(parent[n], m)
+    sol(parent[n], m)
 
 
 T = int(sys.stdin.readline())
