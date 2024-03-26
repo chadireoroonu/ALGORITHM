@@ -30,8 +30,6 @@ if gram and sol:  # 그람, 도보 모두 목적지 도착 가능 시 작은 값
     sol = gram if gram < sol else sol
 elif gram and not sol:  # 그람으로만 목적지 도착 가능 시 저장 값 변경
     sol = gram
-else:  # 두 가지 경우 모두 목적지 도착 불가능 시 저장값 0
-    sol = 0
 
 # 도착 시간이 0이 아니고 T보다 작을 때 출력, 조건 미충족 시 Fail 출력
 print(sol if sol and sol <= T else "Fail")
