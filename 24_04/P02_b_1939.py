@@ -13,8 +13,7 @@ S, E = map(int, sys.stdin.readline().split())
 maxi = [0] * (N + 1)  # 출발지에서 각 섬까지의 최대 중량
 
 queue = []
-heapq.heappush(queue, [0, S])
-maxi[S] = 0
+heapq.heappush(queue, [-10 ** 9, S])  # 최대치로 초기 설정
 while queue:
     cost, x = heapq.heappop(queue)
     # 목적지에 도착했다면 중단
@@ -25,8 +24,8 @@ while queue:
         continue
     # 연결된 섬까지 중량제한, 섬 번호 저장
     for temp, nx in loads[x]:
-        # cost가 0이 아니면, cost, temp 중 작은 무게로 할당
-        select = max(cost, temp) if cost else temp
+        # cost, temp 중 작은 중량제한 선택
+        select = max(cost, temp)
         # 저장된 무게보다 큰 중량제한일 경우 maxi 재할당
         if maxi[nx] > select:
             maxi[nx] = select
