@@ -1,6 +1,6 @@
 def solution(id_list, report, k):
     answer = [0] * len(id_list)
-    count = [0] * len(id_list) // 신고당한 횟수
+    count = [0] * len(id_list) # 신고당한 횟수
     complain = [[] for _ in range(len(id_list))] # 신고한 사람들
     
     # 신고정보 입력 처리
